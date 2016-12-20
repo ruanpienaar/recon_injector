@@ -1,0 +1,13 @@
+{application, recon_injector,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  hawk
+                 ]},
+  {mod, { recon_injector_app, []}},
+  {env, []}
+ ]}.
