@@ -8,6 +8,6 @@
                   stdlib,
                   hawk
                  ]},
-  {mod, { recon_injector_app, []}},
+  %{mod, { recon_injector_app, []}},
   {env, []}
  ]}.
