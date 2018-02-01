@@ -11,3 +11,6 @@ Mnesia*
 .rebar
 ebin/*
 recon_injector
+_build/
+rebar.lock
+rebar3

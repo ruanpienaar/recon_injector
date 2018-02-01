@@ -1,32 +1,14 @@
-.PHONY: compile get-deps update-deps test clean deep-clean
+.PHONY: escriptize compile test clean rebar3
 
-compile: get-deps update-deps
-	@./rebar compile escriptize
+escriptize: compile
+	@./rebar3 escriptize
+	@cp _build/default/bin/recon_injector .
 
-get-deps:
-	@./rebar get-deps
-
-update-deps:
-	@./rebar update-deps
+compile: rebar3
+	@./rebar3 compile
 
 clean:
-	@./rebar clean
+	@./rebar3 clean
 
-deep-clean: clean
-	@./rebar delete-deps
-
-setup_dialyzer:
-	dialyzer --build_plt --apps erts kernel stdlib runtime_tools syntax_tools deps/*/ebin ./ebin
-	dialyzer --add_to_plt ebin
-
-dialyzer: compile
-	dialyzer ebin
-
-analyze: checkplt
-	@./rebar skip_deps=true dialyze
-
-buildplt: setup_dialyzer
-	@./rebar skip_deps=true build-plt
-
-checkplt: buildplt
-	@./rebar skip_deps=true check-plt
+rebar3:
+	@ls rebar3 || wget https://s3.amazonaws.com/rebar3/rebar3 && chmod +x rebar3
