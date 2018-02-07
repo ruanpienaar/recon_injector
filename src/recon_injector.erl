@@ -15,5 +15,6 @@ main(_) ->
     usage().
 
 usage() ->
+    timer:sleep(50),
     io:format("./recon_injector [inject/purge] NODE COOKIE\n", []),
     timer:sleep(50).

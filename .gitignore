@@ -14,3 +14,4 @@ recon_injector
 _build/
 rebar.lock
 rebar3
+rebar3.crashdump
